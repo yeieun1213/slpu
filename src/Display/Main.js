@@ -22,7 +22,7 @@ class Main extends Component {
                 src={Main_title_img}
                 ></img>,
             main_sub: '나만의 퍼즐을 만들어 즐거운 게임을 해보자~!',
-            /*main_btn_game: */
+            main_btn_game: <button>go game!</button>
 
         }
     }
@@ -45,7 +45,7 @@ class Main extends Component {
                 {/*this.state.main_btn_game*/}
                 <section>
                     <Link to="/make">
-                        <button>외않되?</button>
+                        {this.state.main_btn_game}
                     </Link>
                     
                 </section>
