@@ -12,9 +12,6 @@ import { withRouter, Link, BrowserRouter } from 'react-router-dom';
 */
 
 class Main extends Component {
-    gotomake = () =>{
-        this.props.history.push('/make');
-    }
     constructor(props){
         super(props);
         this.state = {
@@ -47,9 +44,6 @@ class Main extends Component {
                 </section>
                 {/*this.state.main_btn_game*/}
                 <section>
-                <BrowserRouter>
-                <button onClick={this.gotomake}>외않되?</button>
-                </BrowserRouter>
                 </section>
                 
                 

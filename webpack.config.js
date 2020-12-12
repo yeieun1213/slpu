@@ -3,20 +3,17 @@ console.log(path);
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const settings = {
-    dispath: path.join(__dirname, "dist"),
-    srcPath: path.join(__dirname, "src")
-};
-
 module.exports = {
     devtool: 'inline-source-map',
     performance: {hints: false},
+    mode: 'development',
     entry: {
         index: './index.js',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/'
     },
     resolve:{
         extensions: ['.js', '/jsx']
@@ -25,7 +22,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.css/i,
                 use: ['style-loader', 'css-loader'],
             },
             {
@@ -38,7 +35,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_module/,
                 options: {
@@ -52,10 +49,11 @@ module.exports = {
                     '@babel/preset-react',
                     ],
                     plugins:[
-                        "@babel/plugin-proposal-class-properties"
+                        "@babel/plugin-proposal-class-properties",
                     ]                    
                 }
             },
+
         ],
     },
 
@@ -70,8 +68,12 @@ module.exports = {
         hot: true,
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        //new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: "./index.html"
-        })]
+            template: "./dist/index.html",
+            filename: "index.html"
+        }
+        )
+        //new HtmlWebpackRootPlugin('root')
+    ]
 };
