@@ -44,7 +44,12 @@ class Main extends Component {
                 </section>
                 {/*this.state.main_btn_game*/}
                 <section>
+                    <Link to="/make">
+                        <button>외않되?</button>
+                    </Link>
+                    
                 </section>
+
                 
                 
                     
