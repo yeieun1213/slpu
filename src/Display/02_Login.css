@@ -1,0 +1,23 @@
+.title{
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    /*font-weight: 5%;*/
+    background: #22b8cf;
+    color: white;
+}
+
+.input{
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.btn{
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    /*font-weight: 5%;*/
+    background: #22b8cf;
+    color: white;
+}

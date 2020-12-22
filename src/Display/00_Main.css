@@ -25,11 +25,17 @@
     /*border-bottom: 1px solid #22b8cf/*/
 }
 
+.btn{
+    text-align: center;
+    background: #22b8cf;
+}
+
 .btn_game{
     padding: 1rem;
+    border: none;
     margin:0 auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    background: #22b8cf;
-    color: white;
+    background: white;
+    color: #22b8cf;
 }

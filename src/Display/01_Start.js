@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Make extends Component {
+class Start extends Component {
     render(){
         return(
             <div>
-                <h1>hello</h1>
+                <h1>start</h1>
                 </div>
         )
     }
 }
 
-export default Make;
+export default Start;

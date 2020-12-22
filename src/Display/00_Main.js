@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Main.css';
+import './00_Main.css';
 import Main_title_img from '../img/main_title.png';
-import { withRouter, Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 /*
     Main Page: The most basic first page of SLPU project.
 
@@ -9,6 +9,10 @@ import { withRouter, Link, BrowserRouter } from 'react-router-dom';
         main_title: title of SLPU.
         main_sub: description of SLPU.
         main_btn_game: put this button and user can make their own game.
+
+        user_id: identification of user.
+        user_state: if you make a game, this is 0(constructor).
+                    if you play a game, this is 1(friend).
 */
 
 class Main extends Component {
@@ -22,7 +26,9 @@ class Main extends Component {
                 src={Main_title_img}
                 ></img>,
             main_sub: '나만의 퍼즐을 만들어 즐거운 게임을 해보자~!',
-            main_btn_game: <button>go game!</button>
+            main_btn_game: <button className="btn_game">go game!</button>,
+            //user_id:
+            user_state:0    // 0: constructor, 1: friend
 
         }
     }
@@ -43,10 +49,13 @@ class Main extends Component {
                     <h6>{this.state.main_sub}</h6>
                 </section>
                 {/*this.state.main_btn_game*/}
-                <section>
-                    <Link to="/make">
-                        {this.state.main_btn_game}
-                    </Link>
+                <section className="btn">
+                    {
+                        {   //0: constructor, 1: friend
+                            0 : <Link to="/login">{this.state.main_btn_game}</Link>,
+                            1 : <Link to="/start">{this.state.main_btn_game}</Link>
+                        }[this.state.user_state]    
+                    }
                     
                 </section>
 
