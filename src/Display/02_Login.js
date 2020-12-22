@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 /*
     Login Page: The page that users write down their nickname
-                and that developers 
+                and the page send the nickname to next Make Page.
+
+    variable:
+        user_id: users's nickname
+        login_title: the title of this page.
+        login_input: the blank for users to write down their own nickname.
+        login_btn_next: the button to go to the next course(03_Make Page).
 */
 
 class Login extends Component {
@@ -13,13 +19,8 @@ class Login extends Component {
         this.state={
             user_id: 'hihi',
             login_title: "이름을 입력해주세요",
-            login_input: <input type="user_id" name="id"
-
-                ></input>,
+            login_input: <input type="user_id" name="id"></input>,
             login_btn_next: <button className="btn_next">다음</button>,
-
-
-
         }
     }
 
@@ -29,28 +30,20 @@ class Login extends Component {
                 <section className="title">
                     {this.state.login_title}
                 </section>
-
+                {/* form: to convey the user's information in POST method to 03_Make Page.*/}
                 <form action="/login" method="post" onSubmit={function(e){
-                        e.preventDefault();
-                        this.setState({user_id:e.target.id.value})
-                        console.log(e.target.id.value)
-                        
-                        
-                    }.bind(this)}
-                    >
+                    e.preventDefault(); // prevent refresh
+                    this.setState({user_id:e.target.id.value})  // set real user_id's value (from login_input)
+                    console.log(e.target.id.value)}.bind(this)}>
                         <section className="input">
-                {this.state.login_input}
-                </section>
-                <section className="btn">
-                    {/*<Link to="/make">{this.state.login_btn_next}</Link>*/}
-                   
-                    {this.state.login_btn_next}
-                    <h1>{this.state.user_id}</h1>
-                </section>
-
-
-                    </form>
-                
+                            {this.state.login_input}
+                        </section>
+                        <section className="btn">
+                            <Link to="/make">{this.state.login_btn_next}</Link>
+                            {/*show user_id*/}
+                            <h1>{this.state.user_id}</h1>
+                        </section>
+                </form>
             </main>
         )
     }

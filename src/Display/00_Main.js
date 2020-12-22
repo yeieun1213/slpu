@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './00_Main.css';
 import Main_title_img from '../img/main_title.png';
 import { Link } from 'react-router-dom';
+
 /*
     Main Page: The most basic first page of SLPU project.
 
     variable:
-        main_title: title of SLPU.
+        main_title: the title of SLPU.
         main_sub: description of SLPU.
         main_btn_game: put this button and user can make their own game.
 
@@ -48,7 +49,6 @@ class Main extends Component {
                     <h5>{this.state.main_sub}</h5>
                     <h6>{this.state.main_sub}</h6>
                 </section>
-                {/*this.state.main_btn_game*/}
                 <section className="btn">
                     {
                         {   //0: constructor, 1: friend
@@ -56,7 +56,6 @@ class Main extends Component {
                             1 : <Link to="/start">{this.state.main_btn_game}</Link>
                         }[this.state.user_state]    
                     }
-                    
                 </section>
 
                 
