@@ -4,16 +4,16 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+    
     devtool: 'inline-source-map',
     performance: {hints: false},
-    mode: 'development',
+    //mode: 'development',
     entry: {
         index: './index.js',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/'
     },
     resolve:{
         extensions: ['.js', '/jsx']
@@ -62,16 +62,16 @@ module.exports = {
         inline: true,
         port: 3000,
         open: true,
-        //contentBase: "./dist",
+        //contentBase: path.resolve(__dirname, 'dist'),
         historyApiFallback: true,
-        publicPath: "./",
+        //publicPath: "./",
         hot: true,
     },
     plugins: [
         //new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: "./dist/index.html",
-            filename: "index.html"
+            template: "index.html"
+            //filename: "index.html"
         }
         )
         //new HtmlWebpackRootPlugin('root')

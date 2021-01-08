@@ -24,6 +24,16 @@ class Login extends Component {
         }
     }
 
+    changeEvent = (e) => {
+        e.preventDefault(); // prevent refresh
+        this.setState({user_id:e.target.id.value});    // set real user_id's value (from login_input)
+        console.log(e.target.id.value);
+        this.props.onSubmit(
+            e.target.id.value
+        );
+
+    }
+
     render(){
         return(
             <main className="login">
@@ -31,10 +41,7 @@ class Login extends Component {
                     {this.state.login_title}
                 </section>
                 {/* form: to convey the user's information in POST method to 03_Make Page.*/}
-                <form action="/login" method="post" onSubmit={function(e){
-                    e.preventDefault(); // prevent refresh
-                    this.setState({user_id:e.target.id.value})  // set real user_id's value (from login_input)
-                    console.log(e.target.id.value)}.bind(this)}>
+                <form action="/make" method="post" onSubmit={this.changeEvent}>
                         <section className="input">
                             {this.state.login_input}
                         </section>

@@ -26,7 +26,7 @@ class Main extends Component {
                 className="main_title_img"
                 src={Main_title_img}
                 ></img>,
-            main_sub: '나만의 퍼즐을 만들어 즐거운 게임을 해보자~!',
+            main_sub: '게임게임게임게임!',
             main_btn_game: <button className="btn_game">go game!</button>,
             //user_id:
             user_state:0    // 0: constructor, 1: friend
