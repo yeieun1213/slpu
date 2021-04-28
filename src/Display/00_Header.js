@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './00_Main.css';
+import './00_Header.css';
 import Main_title_img from '../img/main_title.png';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
                     if you play a game, this is 1(friend).
 */
 
-class Main extends Component {
+class Header extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -38,27 +38,10 @@ class Main extends Component {
     render() {
         return(
             <main className="main">
-                <section className="sub">
-                    <h2>{this.state.main_sub}</h2>
-                    <h3>{this.state.main_sub}</h3>
-                    <h4>{this.state.main_sub}</h4>
-                    <h5>{this.state.main_sub}</h5>
+                <section className="title">
+                    <h1>{this.state.main_title}</h1>
+                    {/*this.state.main_title_img*/}
                 </section>
-                <section className="btn">
-                    {
-                        {   //0: constructor, 1: friend
-                            0 : <Link to="/login">{this.state.main_btn_game}</Link>,
-                            1 : <Link to="/start">{this.state.main_btn_game}</Link>
-                        }[this.state.user_state]    
-                    }
-                </section>
-
-                
-                
-                    
-
-
-                    
                 
                 
             </main>
@@ -67,4 +50,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default Header;

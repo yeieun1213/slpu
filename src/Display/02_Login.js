@@ -17,7 +17,7 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.state={
-            user_id: 'hihi',
+            user_id: '',
             login_title: "이름을 입력해주세요",
             login_input: <input type="user_id" name="id"></input>,
             login_btn_next: <button className="btn_next">다음</button>,
@@ -31,9 +31,21 @@ class Login extends Component {
         this.props.onSubmit(
             e.target.id.value
         );
-
+        //test;
     }
-
+/** 
+    test(){
+        fetch("/src/Dislay/make",{
+            method: "post",
+            headers:{
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                id:this.user_id
+            })
+        });
+    }
+**/
     render(){
         return(
             <main className="login">
@@ -41,14 +53,16 @@ class Login extends Component {
                     {this.state.login_title}
                 </section>
                 {/* form: to convey the user's information in POST method to 03_Make Page.*/}
-                <form action="/make" method="post" onSubmit={this.changeEvent}>
+                <form onSubmit={this.changeEvent}>
                         <section className="input">
                             {this.state.login_input}
                         </section>
                         <section className="btn">
-                            <Link to="/make">{this.state.login_btn_next}</Link>
+                            {/*<Link to="/make">{this.state.login_btn_next}</Link>*/}
                             {/*show user_id*/}
+                            <Link to="/login">{this.state.login_btn_next}</Link>
                             <h1>{this.state.user_id}</h1>
+                            <h1>hello</h1>
                         </section>
                 </form>
             </main>
